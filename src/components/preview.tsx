@@ -36,16 +36,10 @@ const html = `
 const Preview: React.FC<PreviewProps> = ({ code, err }) => {
   const iframe = useRef<any>();
   useEffect(() => {
-    const iframeCurrent = iframe.current;
-    if (!iframeCurrent) return;
-    iframeCurrent.srcdoc = html;
-    const onLoad = () => {
-      iframeCurrent.contentWindow?.postMessage(code, '*');
-    };
-    iframeCurrent.addEventListener('load', onLoad, { once: true });
-    return () => {
-      iframeCurrent.removeEventListener('load', onLoad);
-    };
+    iframe.current.srcdoc = html;
+    setTimeout(() => {
+      iframe.current.contentWindow.postMessage(code, '*');
+    }, 50);
   }, [code]);
   return (
     <div className="preview-wrapper">
@@ -53,7 +47,6 @@ const Preview: React.FC<PreviewProps> = ({ code, err }) => {
         title="preview"
         ref={iframe}
         sandbox="allow-scripts"
-        srcDoc={html}
       />
       {err && <div className="preview-error">{err}</div>}
     </div>)

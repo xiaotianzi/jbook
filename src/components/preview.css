@@ -11,7 +11,7 @@
 }
 
 .preview-errors {
-    position: absolute;
+    position: relative;
     top: 10px;
     left: 10px;
     color: red;
