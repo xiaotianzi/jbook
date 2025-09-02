@@ -1,5 +1,36 @@
-export const serve = (port: number, filename: string, dir: string) => {
-    console.log('serving traffic on port', port)
-    console.log('saving/fetching cells from', filename)
-    console.log('that file is in dir', dir)
+import express from "express"
+import { createProxyMiddleware } from "http-proxy-middleware"
+import path from "path"
+import { createCellsRouter } from "./routes/cells"
+
+export const serve = (port: number, filename: string, dir: string, useProxy: boolean) => {
+    const app = express()
+
+    if (useProxy) {
+        app.use(createProxyMiddleware({
+            target: 'http://127.0.0.1:3000',
+            ws: true,
+            logger: { info() { }, warn() { }, error() { } }
+        }))
+    } else {
+        const packagePath = require.resolve('local-client/build/index.html')
+        app.use(express.static(path.dirname(packagePath)))
+    }
+
+    app.use(createCellsRouter(filename, dir))
+
+    return new Promise<void>((resolve, reject) => {
+        const server = app.listen(port)
+
+        // if success then resolve
+        server.on('listening', () => {
+            resolve()
+        })
+
+        // error like port in use then reject
+        server.on('error', (err) => {
+            reject(err)
+        })
+
+    })
 }
