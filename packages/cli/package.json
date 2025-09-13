@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@jsnote-sunflower/local-api": "^1.0.0",
-    "commander": "^14.0.0",
     "@types/node": "^24.3.0",
+    "commander": "^14.0.0",
     "esbuild": "0.8.26",
     "typescript": "^5.9.2"
   }
