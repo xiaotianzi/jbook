@@ -15,7 +15,7 @@ export const serve = (port: number, filename: string, dir: string, useProxy: boo
             logger: { info() { }, warn() { }, error() { } }
         }))
     } else {
-        const packagePath = require.resolve('local-client/build/index.html')
+        const packagePath = require.resolve('@jsnote-sunflower/local-client/build/index.html')
         app.use(express.static(path.dirname(packagePath)))
     }
 

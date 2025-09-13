@@ -1,20 +1,30 @@
 {
-  "name": "cli",
+  "name": "jsnote-sunflower",
   "version": "1.0.0",
   "description": "",
+  "files": [
+    "dist"
+  ],
+  "bin": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --minify --define:process.env.NODE_ENV=\\\"production\\\" --external:node:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "commander": "^14.0.0",
-    "local-api": "^1.0.0"
+    "@jsnote-sunflower/local-client": "^1.0.0"
   },
   "devDependencies": {
+    "@jsnote-sunflower/local-api": "^1.0.0",
+    "commander": "^14.0.0",
     "@types/node": "^24.3.0",
+    "esbuild": "0.8.26",
     "typescript": "^5.9.2"
   }
 }
