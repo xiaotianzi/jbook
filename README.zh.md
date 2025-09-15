@@ -1,6 +1,6 @@
 # jbook
 
-[English Version](./README.md)
+[English Version](./README.md) | 中文说明
 
 jbook 是一个在浏览器中运行 JavaScript 和 TypeScript 代码的本地笔记本，体验类似 Jupyter Notebook。它允许在网页中混合编写 Markdown 与代码单元，并实时查看运行结果。本项目已经发布到 npm，可通过一条命令随时创建笔记本。
 

@@ -1,6 +1,6 @@
 # jbook
 
-[中文说明](./README.zh.md)
+English Version | [中文说明](./README.zh.md)
 
 jbook is a Jupyter-like notebook for running JavaScript and TypeScript snippets in your browser. It lets you mix Markdown and code cells and see results instantly. The project is published on npm, so you can create notebooks anywhere with a single command.
 
