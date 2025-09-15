@@ -20,7 +20,7 @@ Open <http://localhost:4005> in your browser. A file named `notebook.js` will be
 1. Clone this repository and install dependencies:
 
 ```bash
-npm install
+npm install jsnote-sunflower
 ```
 
 2. Launch all packages in watch mode:
@@ -47,4 +47,3 @@ npm test
 ## License
 
 ISC
-

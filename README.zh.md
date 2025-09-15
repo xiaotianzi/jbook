@@ -20,7 +20,7 @@ npx jsnote-sunflower serve notebook.js --port 4005
 1. 克隆仓库并安装依赖：
 
 ```bash
-npm install
+npm install jsnote-sunflower
 ```
 
 2. 以监听模式启动所有子包：
@@ -47,4 +47,3 @@ npm test
 ## 许可证
 
 ISC
-
